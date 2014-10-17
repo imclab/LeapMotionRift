@@ -8,6 +8,34 @@ public class RandomBlocksGenerator : MonoBehaviour {
   public int numberOfBlocks;
   public float size;
 
+  private Color[] list_of_colors = 
+  {
+    new Color(1.00f, 1.00f, 0.94f), // (255,255,240) Ivory
+    new Color(0.96f, 0.96f, 0.86f), // (245,245,220) Beige
+    new Color(0.96f, 0.87f, 0.70f), // (245,222,179) Wheat
+    new Color(0.82f, 0.71f, 0.55f), // (210,180,140) Tan
+    new Color(0.76f, 0.69f, 0.57f), // (195,176,145) Khaki
+    new Color(0.75f, 0.75f, 0.75f), // (192,192,192) Silver
+    new Color(0.50f, 0.50f, 0.50f), // (128,128,128) Gray
+    new Color(0.27f, 0.27f, 0.27f), // (070,070,070) Charcoal
+    new Color(0.00f, 0.00f, 1.00f), // (000,000,255) Navy Blue
+    new Color(0.02f, 0.30f, 0.62f), // (008,076,158) Royal Blue
+    new Color(0.00f, 0.00f, 0.80f), // (000,000,205) Medium Blue
+    new Color(0.00f, 0.50f, 1.00f), // (000,127,255) Azure
+    new Color(0.00f, 1.00f, 1.00f), // (000,255,255) Cyan
+    new Color(0.50f, 1.00f, 0.83f), // (127,255,212) Aquamarine
+    new Color(0.00f, 0.50f, 0.50f), // (000,127,127) Teal
+    new Color(0.13f, 0.55f, 0.13f), // (034,139,034) Forest Green
+    new Color(0.50f, 0.50f, 0.00f), // (127,127,000) Olive
+    new Color(0.50f, 1.00f, 0.00f), // (127,255,000) Chartreuse
+    new Color(0.75f, 1.00f, 0.00f), // (192,255,000) Lime
+    new Color(1.00f, 0.84f, 0.00f), // (255,215,000) Golden
+    new Color(0.85f, 0.65f, 0.13f), // (218,165,032) Goldenrod
+    new Color(1.00f, 0.50f, 0.31f), // (255,127,080) Coral
+    new Color(0.98f, 0.50f, 0.45f), // (250,128,114) Salmon
+    new Color(0.99f, 0.06f, 0.75f) // (252,015,192) Hot Pink
+  };
+
   private void Reset()
   {
     if (maxRadius < minRadius)
@@ -44,6 +72,8 @@ public class RandomBlocksGenerator : MonoBehaviour {
       cube.transform.localPosition = position;
       cube.AddComponent<Rigidbody>();
       cube.rigidbody.useGravity = false;
+
+      cube.renderer.material.color = new Color(Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f), Random.Range(0.0f, 1.0f));
     }
   }
 
